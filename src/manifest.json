@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "name": "chrome extension sample",
+  "short_name": "chrome extension",
+  "description": "testing chrome extension",
+  "version": "0.0.14",
+  "version_name": "0.0.14",
+  "icons": {
+    "24": "assets/icon_24.png"
+  }
+}
