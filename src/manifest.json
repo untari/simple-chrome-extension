@@ -6,18 +6,24 @@
   "version": "0.0.14",
   "version_name": "0.0.14",
   "icons": {
-    "24": "assets/icon_24.png"
+    "36": "assets/icon_36.png"
   },
-    "app": {
-    "background": {
-      "scripts": ["background.js"]
-    }
+  "background": {
+        "scripts": ["background.js"]
+   },
+   "browser_action": {
+    "default_popup": "index.html",
+    "default_icon": {
+       "36": "assets/icon_36.png"
+   }
+   },
     "permissions": [
+    "activeTab",
     "storage",
     "system.cpu",
     "system.display",
     "system.memory",
-    "system.network",
     "system.storage"
   ]
 }
+
