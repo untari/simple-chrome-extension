@@ -3,16 +3,20 @@
   "name": "chrome extension sample",
   "short_name": "chrome extension",
   "description": "testing chrome extension",
-  "version": "0.0.14",
-  "version_name": "0.0.14",
+  "version": "1.0",
+ "minimum_chrome_version": "23",
   "icons": {
     "36": "assets/icon_36.png"
   },
-  "background": {
-        "scripts": ["background.js"]
-   },
+
+"background": {
+      "scripts": ["background.js"]
+  },
+  "content_scripts": [{
+        "matches": ["http://127.0.0.1:8080/*"],
+        "js": ["content.js"]
+    }],
    "browser_action": {
-    "default_popup": "index.html",
     "default_icon": {
        "36": "assets/icon_36.png"
    }
