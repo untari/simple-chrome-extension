@@ -4,24 +4,27 @@
   "short_name": "chrome extension",
   "description": "testing chrome extension",
   "version": "1.0",
- "minimum_chrome_version": "23",
   "icons": {
     "36": "assets/icon_36.png"
   },
 
-"background": {
+  "background": {
       "scripts": ["background.js"]
   },
-  "content_scripts": [{
-        "matches": ["http://127.0.0.1:8080/*"],
-        "js": ["content.js"]
-    }],
-   "browser_action": {
+  "content_scripts": [
+    {
+        "matches": ["http://127.0.0.1:8080/"],
+        "js": ["contentScript.js"]
+    }
+  ],
+  "browser_action": {
+
     "default_icon": {
        "36": "assets/icon_36.png"
-   }
-   },
-    "permissions": [
+    }
+  },
+  "permissions": [
+    "tabs",
     "activeTab",
     "storage",
     "system.cpu",
