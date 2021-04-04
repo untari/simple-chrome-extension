@@ -8,9 +8,14 @@ chrome.runtime.sendMessage({ message: msg }, function(response) {
 // Listening to messages in Context Script
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     console.log(request);
+    //create event 
+    var elem = document.querySelector('body');
+    var event = new CustomEvent("build", {
+        detail: {
+           request
+        }
+    });
+    elem.dispatchEvent(event);
     // Callback
-    console.log('hello world');
     sendResponse({ message: 'Content script has received that message ⚡' })
-    
 })
-
