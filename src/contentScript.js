@@ -9,13 +9,13 @@ chrome.runtime.sendMessage({ message: msg }, function(response) {
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     console.log(request);
     //create event 
-    var elem = document.querySelector('body');
+    var obj = document.querySelector('body');
     var event = new CustomEvent("build", {
         detail: {
            request
         }
     });
-    elem.dispatchEvent(event);
+    obj.dispatchEvent(event);
     // Callback
     sendResponse({ message: 'Content script has received that message ⚡' })
 })
