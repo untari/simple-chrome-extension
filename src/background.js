@@ -6,19 +6,22 @@ console.log('background running');
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     if (changeInfo.status == 'complete') {
-        chrome.tabs.query({ active: true }, function(tabs) {
-        // const msg = "Hello from background 🔥";
-        chrome.system.cpu.getInfo(function(cpuInfo) {
-                    console.log(JSON.stringify(cpuInfo));
-            chrome.tabs.sendMessage(tabs[0].id, JSON.stringify(cpuInfo), function(response) {
-                    console.log(response);
+     (function setInterval(){
+            chrome.tabs.query({ active: true }, function(tabs) {
+            // const msg = "Hello from background 🔥";
+            chrome.system.cpu.getInfo(function(cpuInfo) {
+                        console.log(JSON.stringify(cpuInfo));
+                chrome.tabs.sendMessage(tabs[0].id, JSON.stringify(cpuInfo), function(response) {
+                        console.log(response);
+                });
             });
-        });
-            //chrome.tabs.sendMessage(tabs[0].id, { "message": msg }, function(response){
-                // console.log(response);
-                //});
-        });
-    }
+                //chrome.tabs.sendMessage(tabs[0].id, { "message": msg }, function(response){
+                    // console.log(response);
+                    //});
+            });
+            setTimeout(setInterval, 5000);
+        })();
+      }
 });
 
 // Listening to messages page
